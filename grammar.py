@@ -142,8 +142,112 @@ def solution(mylist):
 
 n = 'abc'
 answer = 'abc' * n
-
-# 입력값에 맞는 별 찍기
+# 입력값에 맞는별 찍기
 n = int(input().strip())
 for i in range(n + 1):
     print('*' * i)
+
+
+# Online Python compiler (interpreter) to run Python online.
+# Write Python 3 code in this online editor and run it.
+
+iterable1 = 'ABCD'
+iterable2 = 'xy'
+iterable3 = '1234'
+
+
+import itertools
+
+iterable1 = 'ABCD'
+iterable2 = 'xy'
+iterable3 = '1234'
+
+print(list(itertools.product(iterable1, iterable2, iterable3)))
+
+# [('A', 'x', '1'), ('A', 'x', '2'), ('A', 'x', '3'), ('A', 'x', '4'), ('A', 'y', '1'), ('A', 'y', '2'), ('A', 'y', '3'), ('A', 'y', '4'), ('B', 'x', '1'), ('B', 'x', '2'), ('B', 'x', '3'), ('B', 'x', '4'), ('B', 'y', '1'), ('B', 'y', '2'), ('B', 'y', '3'), ('B', 'y', '4'), ('C', 'x', '1'), ('C', 'x', '2'), ('C', 'x', '3'), ('C', 'x', '4'), ('C', 'y', '1'), ('C', 'y', '2'), ('C', 'y', '3'), ('C', 'y', '4'), ('D', 'x', '1'), ('D', 'x', '2'), ('D', 'x', '3'), ('D', 'x', '4'), ('D', 'y', '1'), ('D', 'y', '2'), ('D', 'y', '3'), ('D', 'y', '4')]
+# > 
+
+def solution(mylist):
+    
+    # answer = [] 
+    # for i in mylist:
+    #     answer += i
+    answer = sum(mylist, [])
+    
+    return answer
+    
+    
+pool = ['A', 'B', 'C']
+
+list(map(''.join, itertools.permutations(%)))
+print(list(map(''.join, itertools.permutations(%)))) # 3개의 원소로 수열 만들기
+print(list(map(''.join, itertools.permutations(pool, 2))))    
+
+
+['ABC', 'ACB', 'BAC', 'BCA', 'CAB', 'CBA']
+['AB', 'AC', 'BA', 'BC', 'CA', 'CB']
+
+my_list = [1, 2, 3, 4, 5, 6, 7, 8, 7, 9, 1, 2, 3, 3, 5, 2, 6, 8, 9, 0, 1, 1, 4, 7, 0]
+answer = {}
+for number in my_list:
+    
+    try:
+        answer[number] += 1
+    except KeyError:
+        answer[number] = 1
+print(answer[1]) # = 4
+print(answer[3])  # = 3
+# print(answer[100])
+
+import collections
+my_list = [1, 2, 3, 4, 5, 6, 7, 8, 7, 9, 1, 2, 3, 3, 5, 2, 6, 8, 9, 0, 1, 1, 4, 7, 0]
+
+import collections
+my_list = [1, 2, 3, 4, 5, 6, 7, 8, 7, 9, 1, 2, 3, 3, 5, 2, 6, 8, 9, 0, 1, 1, 4, 7, 0]
+answer = collections.Counter(my_list)
+
+print(answer[1]) # = 4
+print(answer[3])  # = 3
+print(answer[100]) # = 0
+
+
+# 리스트의 원소 중 짝수인 값만을 제곱해 담은 새 리스트를 리턴하는 solution함수를 완성
+mylist = [3, 2, 6, 7]
+answer = []
+for number in mylist:
+    if number % 2 == 0:
+        answer.append(number**2) 
+        
+mylist = [3, 2, 6, 7]
+answer = [number**2 for number in mylist if number % 2 == 0]   
+
+# 본 문제에서는 자연수 5개가 주어집니다.
+
+# 숫자를 차례로 곱해 나온 수가 제곱수1가 되면 found를 출력하고
+# 모든 수를 곱해도 제곱수가 나오지 않았다면 not found를 출력하는 문제
+
+import math
+
+if __name__ == '__main__':
+    numbers = [int(input()) for _ in range(5)]
+    multiplied = 1
+    for number in numbers:
+        multiplied *= number
+        if math.sqrt(multiplied) == int(math.sqrt(multiplied)):
+            print('found')
+            break
+    else:
+        print('not found')
+
+#math.pow 함수란?  파이썬 제곱 함수 pow
+# import math를 통해서 math 라이브러리를 임포트 
+# 함수 모양 : math.pow(x, y)함수 설명 : math.pow(x, y) 함수는 x의 y 거듭제곱 (x의 y승)을 반환
+
+# 파이썬 제곱근 함수 sqrt
+
+# 함수 모양 : math.sqrt(x)함수 설명 : math.sqrt(x) 함수는 x의 제곱근을 반환합니다. (x에 루트를 씌운 값을 반환) 
+
+#이 함수의 반환형 또한 float 타입입니다.2.math.sqrt(음수)가 들어오게 된다면 ERROR 가 발생합니다. 
+
+
+   
