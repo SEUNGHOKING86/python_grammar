@@ -1,6 +1,6 @@
 
 # 기존 코드 방식
-count = fresh_fruit.get('사화', 0)
+count = fresh_fruit.get('사과', 0)
 if count >= 4:
 	make_cider(count)
 else:
