@@ -1,3 +1,9 @@
+from imghdr import what
+from re import X
+from tempfile import tempdir
+from tkinter import N
+
+
 -- 자료구조와 알고리즘 --  data structures
 
 알고리즘(algorithm) = 어떤 문제를 해결하기 위한 절차, 방법, 명령어들의 집합(해결하고자 하는 문제에 따라 최적의 해법은 서로 다르다)
@@ -118,3 +124,66 @@ def solution(L, x):
 		return [i for i, v in enumerate(L) if v ==x]
 	else:
 		return [-1]
+
+# 재귀 알고리즘  
+
+# 재귀함수란(Recusive functions)?
+# 하나의 함수에서 자신을 다시 호출하여 작업을 수행하는 것
+
+# 이진트리(이진탐색과 비슷한 구조)
+
+# 자연수의 합 구하기 (재귀 함수를 호출할때는 반드시 종결 조건이 필요)
+# 1 부터 n까지 모든 자연수의 합을 구하시오.
+
+
+# recursive version
+def sum(n):
+    if n <= 1:
+        return n
+    else:
+        return n + sum(n-1)
+
+a = int(input("Number:"))
+print(sum(a))
+
+# iterative version (반복적인 버전)
+def sum(n):
+    s = 0
+    while n >= 0:
+        s += n
+        n -= 1
+        return s
+
+# 효율적인 부분에서는 iterative version 낫다 (O(n)커질경우))
+
+
+#n! 구하는 함수
+def what(n):
+    if n <= 1:
+        return 1
+    else:
+        return n * what(n-1)
+
+
+# 피보나치 수를 구하여라. recursive version, iterative version 2가지
+
+
+# recursive version
+def solution(x):
+    if x < 2 :return x
+    else:
+        return solution(x-1) + solution(x-2)
+# iterative version
+
+
+def solution(x):
+    answer = 0
+    fa = 0
+    fb = 1
+    while x > 0:
+        x -= 1
+        fa, fb = fb, fa+fb
+        answer = fa
+    return answer
+
+
