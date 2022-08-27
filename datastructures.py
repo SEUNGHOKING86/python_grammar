@@ -173,9 +173,8 @@ def solution(x):
     if x < 2 :return x
     else:
         return solution(x-1) + solution(x-2)
-# iterative version
 
-
+# iterative version (효율적 측면에서 더 낫다.)
 def solution(x):
     answer = 0
     fa = 0
@@ -186,4 +185,26 @@ def solution(x):
         answer = fa
     return answer
 
+# 재귀 알고리즘의 유용성   (하노이 탐 쌓기)
 
+
+
+ts= time.time() = ts
+
+# 재귀적 이진탐색
+# L = [2, 3, 5, 6, 9, 11, 15]
+# x = 6
+# l = 0
+# u = 6
+# 의 인자들이 주어지면, L[3] == 6 이므로 3 을 리턴해야 합니다.
+
+def solution(L, x, l, u):
+    if l>u:
+        return -1
+    mid = (l + u) // 2
+    if x == L[mid]:
+        return mid
+    elif x < L[mid]:
+        return solution(L,x,l,mid-1)
+    else:
+        return solution(L,x,mid+1,u)
