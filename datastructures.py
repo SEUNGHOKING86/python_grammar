@@ -15,6 +15,10 @@
 
 # 입력으로 주어지는 리스트 x의 첫 원소와 마지막 원소의 합을 리턴하는 합
 
+import numbers
+from tokenize import Number
+
+
 def solution(x):
     answer = x[0] + x.pop()
     return answer
@@ -186,3 +190,23 @@ def solution(L, x, l, u):
         return solution(L,x,l,mid-1)
     else:
         return solution(L,x,mid+1,u)
+
+
+
+#리스트 앞쪽에는 우선순위를 부여한 몇몇 숫자를 위치시켜야 한다고 가정했을 때
+
+
+def sort_priority(values, group):
+    def helper(x):
+        if x in group:
+            return (0, x)
+        return (1, x)
+    values.sort(key=helper)        
+
+numbers = [8, 3, 1, 2, 5, 4, 7, 6] 
+group ={2, 3, 5, 7}
+
+sort_priority(numbers, group)
+print(numbers)
+
+=> [2, 3, 5, 7, 1, 4, 6, 8 ]
