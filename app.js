@@ -17,5 +17,18 @@ const hellos = document.getElementsByClassName("hello");
 console.log(hellos);
 
 
-// querySelector ** 스트링 안에 .을 찍는다. 여러가지 있을 경우 첫번째 것만 가져온다. 모두 가져오려면 querySelectorAll사용
+// querySelector ** 스트링 안에 .을 찍는다. 여러가지 있을 경우 첫번째 것만 가져온다. 모두 가져오려면 querySelectorAll사 용
 const title = document.querySelector(".title h1")
+
+event
+// 누군가가 title을 클릭 했을때
+
+
+const title = document.querySelector("div.title :first-child h1")
+
+function handtitleclick() {
+    console.log("title was clickded!");
+}
+
+
+title.addEventListener("click", handtitleclick);
