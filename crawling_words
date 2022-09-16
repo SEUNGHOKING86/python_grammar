@@ -1,0 +1,30 @@
+import requests
+from bs4 import BeautifulSoup
+from collections import Counter
+import random, json
+
+def index(request):
+    WORDS = []
+    url = "https://ko.wiktionary.org/wiki/부록:자주_쓰이는_한국어_낱말_5800"
+    r = requests.get(url)
+    bs = BeautifulSoup(r.text, "lxml")
+    table = bs.select_one("table.prettytable")
+    words = table.select("tr > td > dl > dd")
+    for word in words:
+        txt = word.text.replace(" ", "").strip()        
+        if 1 < len(txt) <= 4 and '다' not in txt:
+            WORDS.append(txt)
+            
+    words = set(WORDS)
+    dictfile = {}    
+    for word in words:
+        first_word = word[0]
+        dictfile[first_word] = word
+    print(dictfile)
+    
+    file_path = "./words.json"
+    with open(file_path, 'w', encoding='utf-8') as file:
+        json.dump(dictfile, file, indent="\t", ensure_ascii=False )
+    
+    return HttpResponse (words)
+    
